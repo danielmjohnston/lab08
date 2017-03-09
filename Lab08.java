@@ -14,7 +14,7 @@ public class Lab08
     int daytmp [3];
     int i = 0;
     Scanner fin = null;
-    MyDate startDate = null;
+    MyDate startDate = null, curDate;
     
     try{
       fin = new Scanner (new FileReader(bubbles[0]));
@@ -46,11 +46,23 @@ public class Lab08
 	dateV.add(new EventMonthly(freq,prob,inout,label,startDate));
       }
       else
-	datV.add(new EventDaily(freq,prob,inout,label,startDate));
+	dateV.add(new EventDaily(freq,prob,inout,label,startDate));
 
       i++;
     }
 
+    curDate = makeDate(2017,1,1);
+    
+    
     for(int j = 0; j < days; j++){
-      for(int k = 0; k < i; k++)
+      for(int k = 0; k < i; k++){
+	flag = 0;
+	if(dateV[k].isHap(curDate)){
+	  if(flag == 0){
+	    System.out.print(currdate.toString() + ": ");
+	  }
+	  System.out.print(dateV[k].toString()+ ( ", ");
+	}
+      }
+    }
     
