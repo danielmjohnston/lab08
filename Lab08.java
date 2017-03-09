@@ -5,6 +5,7 @@ public class Lab08
   
   public static void main(String[] bubbles)
   {
+    int days = Integer.parseInt(bubbles[2]);
     Vector dateV = new Vector();
     double prob = 1;
     String[] dateThing;
@@ -42,10 +43,14 @@ public class Lab08
       label = fin.nextLine();
       startDate = makeDate(daytmp[2],daytmp[0],daytmp[1]);
       if(unit.equals("monthly")){
-	dateV.add(new eventMonthly(freq,prob,inout,label,startDate));
+	dateV.add(new EventMonthly(freq,prob,inout,label,startDate));
       }
       else
-	datV.add(new eventDaily(freq,prob,inout,label,startDate));
+	datV.add(new EventDaily(freq,prob,inout,label,startDate));
 
       i++;
-    }	
+    }
+
+    for(int j = 0; j < days; j++){
+      for(int k = 0; k < i; k++)
+    
